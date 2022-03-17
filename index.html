@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="time">
+    <button onclick="changeTime()">Next</button>
+    <h1>Temps restant :</p>
+    <p id="h">Heures : </p>
+    <p id="m">Minutes : </p>
+    <p id="s">Secondes : </p>
+</body>
+</html>
+<script>
+
+    var time = 1647551172;
+    var date = new Date(time - Date.now());
+
+    var h = date.getHours();
+    var m = date.getMinutes();
+    var s = date.getSeconds();
+
+    document.getElementById("h").textContent = "Heures : " + h;
+    document.getElementById("m").textContent = "Minutes : " + m;
+    document.getElementById("s").textContent = "Secondes : " + s;
+
+    setInterval(() => {
+        date = new Date(time - Date.now());
+        
+        h = date.getHours();
+        m = date.getMinutes();
+        s = date.getSeconds();
+
+        document.getElementById("h").textContent = "Heures : " + h;
+        document.getElementById("m").textContent = "Minutes : " + m;
+        document.getElementById("s").textContent = "Secondes : " + s;
+    }, 1000);
+
+</script>
+<script>
+
+    function changeTime() {
+        time = document.getElementById("time").textContent;
+    }
+
+</script>
